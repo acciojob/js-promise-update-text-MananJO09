@@ -1,10 +1,14 @@
 //your JS code here. If required.
-let promise = new Promise((resolve , reject)=>{
-	setTimeout(()=>{
-		resolve("Hello world!")
-	},1000)
-})
+const outputElement = document.getElementById("output");
 
-promise.then((text)=>{
-	document.querySelector("#output").innerText = text
-})
+function delayedMessage() {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve("Hello, world!");
+    }, 1000);
+  });
+}
+
+delayedMessage().then((message) => {
+  outputElement.textContent = message;
+});
